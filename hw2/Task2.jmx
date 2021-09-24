@@ -312,7 +312,7 @@
         </LoopController>
         <hashTree>
           <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="Random Data" enabled="true">
-            <stringProp name="filename">C:\Users\Iryna_Shepel\Documents\scripts for couse\DATA.csv</stringProp>
+            <stringProp name="filename">C:\Users\Iryna_Shepel\Documents\scripts for couse\hw2\DATA.csv</stringProp>
             <stringProp name="fileEncoding">UTF-8</stringProp>
             <stringProp name="delimiter">,</stringProp>
             <stringProp name="variableNames"></stringProp>
@@ -343,16 +343,31 @@
             <stringProp name="LoopController.loops">${__jexl2(${NUMBER_OF_POSTS}-100)}</stringProp>
           </LoopController>
           <hashTree>
-            <com.blazemeter.jmeter.RandomCSVDataSetConfig guiclass="com.blazemeter.jmeter.RandomCSVDataSetConfigGui" testclass="com.blazemeter.jmeter.RandomCSVDataSetConfig" testname="Random Data" enabled="true">
-              <stringProp name="filename">C:\Users\Iryna_Shepel\Documents\scripts for couse\DATA_2.csv</stringProp>
-              <stringProp name="fileEncoding">UTF-8</stringProp>
-              <stringProp name="delimiter">,</stringProp>
-              <stringProp name="variableNames"></stringProp>
-              <boolProp name="randomOrder">true</boolProp>
-              <boolProp name="ignoreFirstLine">true</boolProp>
-              <boolProp name="rewindOnTheEndOfList">true</boolProp>
-              <boolProp name="independentListPerThread">false</boolProp>
-            </com.blazemeter.jmeter.RandomCSVDataSetConfig>
+            <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="Generate Random Date" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">public int getRandomNumberUsingNextInt(int min, int max) {
+    Random random = new Random();
+    return random.nextInt(max - min) + min;
+}
+
+int minute = getRandomNumberUsingNextInt(0, 59)
+int hour = getRandomNumberUsingNextInt(0, 23)
+int day = getRandomNumberUsingNextInt(1, 30)
+
+String s = &quot;2019-&quot;+getRandomNumberUsingNextInt(10, 12)+&quot;-&quot;
+
+if (day &lt; 10) {s = s+&quot;0&quot;+day+&quot; &quot;}
+else {s = s+day+&quot; &quot;}
+if (hour &lt; 10) {s = s+&quot;0&quot;+hour+&quot;:&quot;}
+else {s = s+hour+&quot;:&quot;}
+if (minute &lt; 10) {s = s+&quot;0&quot;+minute}
+else {s = s+minute}
+
+vars.put(&quot;DATA&quot;, s)</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PreProcessor>
             <hashTree/>
             <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Module Controller" enabled="true">
               <collectionProp name="ModuleController.node_path">
