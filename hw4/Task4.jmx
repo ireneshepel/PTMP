@@ -51,19 +51,16 @@
           <elementProp name="VIEWSTATE" elementType="Argument">
             <stringProp name="Argument.name">VIEWSTATE</stringProp>
             <stringProp name="Argument.value">kGWRK5s4dl0wupupfbCtfmiC36q9RTV8kf4Be0caDdLdNhMbSRCFTrIs85UwjWpSUMIDQWEYhGBde4PsY3bQ2xgy1/+01afr2ee/DPd4szs7kSo0ZFDJ2qtEsSmK9RI+eD92Bsgq+yVUpdKWwDu3026lULlQZACBix6AVYjI7H5KymY2</stringProp>
-            <stringProp name="Argument.desc">true</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="VIEWSTATEGENERATOR" elementType="Argument">
             <stringProp name="Argument.name">VIEWSTATEGENERATOR</stringProp>
             <stringProp name="Argument.value">116A77C0</stringProp>
-            <stringProp name="Argument.desc">false</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="EVENTVALIDATION" elementType="Argument">
             <stringProp name="Argument.name">EVENTVALIDATION</stringProp>
             <stringProp name="Argument.value">gumjDgENYoHovu5I3x3RcOFno68gL8yGzTuOJmajV46r0t9LtLO0qcG6liRCVoXEowUqwWU+Q8srLW6EYDAZWkxYRM3H3t9VzYucE63Ds9exaDGFd8x0wPgUIi9cIKYSTKnDCrAmQbGiQxeqKYNn4e94vnKIbBA7HF251x35I/g9r7UW</stringProp>
-            <stringProp name="Argument.desc">true</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -507,6 +504,77 @@ SampleResult.setIgnore()</stringProp>
             </collectionProp>
           </ModuleController>
           <hashTree/>
+        </hashTree>
+        <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Think Time" enabled="true">
+          <collectionProp name="ModuleController.node_path">
+            <stringProp name="764597751">Test Plan</stringProp>
+            <stringProp name="764597751">Test Plan</stringProp>
+            <stringProp name="170071582">Test Fragment</stringProp>
+            <stringProp name="1310565055">ThinkTime</stringProp>
+          </collectionProp>
+        </ModuleController>
+        <hashTree/>
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Log out" enabled="true">
+          <boolProp name="TransactionController.includeTimers">false</boolProp>
+          <boolProp name="TransactionController.parent">true</boolProp>
+        </TransactionController>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Log out" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="logoff" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.name">logoff</stringProp>
+                  <stringProp name="Argument.value"></stringProp>
+                  <stringProp name="Argument.metadata"></stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/perf/Account/login.aspx</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="false">
+              <collectionProp name="HeaderManager.headers">
+                <elementProp name="Referer" elementType="Header">
+                  <stringProp name="Header.name">Referer</stringProp>
+                  <stringProp name="Header.value">${PROTOCOL}://${IP_ADDRESS}/perf/admin/index.cshtml</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Language" elementType="Header">
+                  <stringProp name="Header.name">Accept-Language</stringProp>
+                  <stringProp name="Header.value">en-US,en;q=0.5</stringProp>
+                </elementProp>
+                <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
+                  <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+                  <stringProp name="Header.value">1</stringProp>
+                </elementProp>
+                <elementProp name="Accept-Encoding" elementType="Header">
+                  <stringProp name="Header.name">Accept-Encoding</stringProp>
+                  <stringProp name="Header.value">gzip, deflate</stringProp>
+                </elementProp>
+                <elementProp name="User-Agent" elementType="Header">
+                  <stringProp name="Header.name">User-Agent</stringProp>
+                  <stringProp name="Header.value">Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:92.0) Gecko/20100101 Firefox/92.0</stringProp>
+                </elementProp>
+                <elementProp name="Accept" elementType="Header">
+                  <stringProp name="Header.name">Accept</stringProp>
+                  <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</stringProp>
+                </elementProp>
+              </collectionProp>
+            </HeaderManager>
+            <hashTree/>
+          </hashTree>
         </hashTree>
         <ModuleController guiclass="ModuleControllerGui" testclass="ModuleController" testname="Think Time" enabled="true">
           <collectionProp name="ModuleController.node_path">
